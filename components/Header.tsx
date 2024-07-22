@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="navbar justify-between bg-orange-900 ">
+        <div className="navbar justify-between bg-base-300 ">
           <Link href="/">Barista</Link>
           <ul className="flex">
             <li>
