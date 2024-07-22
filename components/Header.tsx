@@ -5,8 +5,10 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="navbar justify-between bg-base-300 ">
-          <Link href="/">Barista</Link>
+        <div className="navbar justify-between bg-amber-600 ">
+          <Link href="/" className="btn btn-ghost text-lg">
+            Barista
+          </Link>
           <ul className="flex">
             <li>
               <Link className="btn btn-ghost rounded-btn" href="/cart">

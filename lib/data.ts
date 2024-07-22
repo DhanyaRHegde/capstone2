@@ -1,34 +1,37 @@
-import { gql } from 'graphql-request'
+// src/lib/contentful/fetchData.ts
+import { GraphQLClient } from 'graphql-request'
+import { BaristaItem, ContentfulResponse } from './models/contentful'
 import client from './contentful/client'
-import { CapstoneItem, CapstoneResponse } from './models/contentful'
 
-const CAPSTONE_QUERY = gql`
+// Define the GraphQL query
+const BARISTA_QUERY = `
   query {
-    capstoneCollection {
+    baristaCollection {
       items {
         sys {
           id
         }
         name
+        price
+        discount
         image {
           url
           description
         }
-        price
-        discount
-        slug
         type
+        slug
       }
     }
   }
 `
 
-export async function fetchCapstoneData(): Promise<CapstoneItem[]> {
+// Fetch data function
+export async function fetchBaristaData(): Promise<BaristaItem[]> {
   try {
-    const data: CapstoneResponse = await client.request(CAPSTONE_QUERY)
-    return data.capstoneCollection.items
+    const response: ContentfulResponse = await client.request(BARISTA_QUERY)
+    return response.baristaCollection.items
   } catch (error) {
-    console.error('Error fetching capstone data:', error)
+    console.error('Error fetching barista data:', error)
     return []
   }
 }

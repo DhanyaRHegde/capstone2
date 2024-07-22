@@ -3,18 +3,24 @@ export interface Image {
   description: string
 }
 
-export interface CapstoneItem {
+export interface BaristaItem {
   id: string
   name: string
-  image: Image
   price: number
   discount: number
+  image: Image
+  type:
+    | 'Coffee and Beverages'
+    | 'Combos'
+    | 'Fries and Sides'
+    | 'Burgers and Wraps'
   slug: string
-  type: string
 }
 
-export interface CapstoneResponse {
-  capstoneCollection: {
-    items: CapstoneItem[]
-  }
+export interface BaristaCollection {
+  items: BaristaItem[]
+}
+
+export interface ContentfulResponse {
+  baristaCollection: BaristaCollection
 }

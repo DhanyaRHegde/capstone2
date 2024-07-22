@@ -1,9 +1,11 @@
-export default interface Items {
+import { Image } from './contentful'
+
+export interface Items {
   id: string
   name: string
-  image: string
   price: number
   discount?: number
+  image: Image
   type:
     | 'Coffee and Beverages'
     | 'Combos'
