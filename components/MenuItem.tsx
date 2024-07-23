@@ -1,9 +1,9 @@
-// components/MenuItem.tsx
 import React from 'react'
 import { Items } from '@/lib/models/itemModel'
 import Image from 'next/image'
 import Link from 'next/link'
 import { calculateDiscountedPrice } from '@/lib/utils'
+import AddToCart from './AddToCart'
 
 interface MenuItemProps {
   item: Items
@@ -43,12 +43,18 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         </div>
       </div>
       <div>
-        <button
-          // onClick={handleAddToCart}
+        {/* <button
+          
           className="mt-4 w-full bg-amber-800  py-2 rounded hover:bg-yellow-900 transition-colors duration-300"
         >
           Add to Cart
-        </button>
+        </button> */}
+        <AddToCart
+          item={{
+            ...item,
+            qty: 0,
+          }}
+        />
       </div>
     </div>
   )
