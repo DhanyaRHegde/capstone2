@@ -3,38 +3,29 @@ import React from 'react'
 import { Items } from '@/lib/models/itemModel'
 import Image from 'next/image'
 import Link from 'next/link'
+import { calculateDiscountedPrice } from '@/lib/utils'
 
 interface MenuItemProps {
   item: Items
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
-  const calculateDiscountedPrice = (price: number, discount?: number) => {
-    if (discount && discount > 0) {
-      return price - price * (discount / 100)
-    }
-    return price
-  }
-
   const discountedPrice = calculateDiscountedPrice(item.price, item.discount)
 
   return (
-    <div className="card bg-yellow-500 shadow-lg mb-4 hover:shadow-slate-700 transition-shadow duration-300">
+    <div className="card bg-yellow-500 shadow-lg mb-4 hover:shadow-slate-700 transition-shadow duration-300 flex-col justify-between">
       <figure>
-        <Link href={`/item/${item.slug}`}>
-          <Image
-            src={item.image.url}
-            alt={item.image.description}
-            width={300}
-            height={300}
-            className="object-cover h-64 w-full"
-          />
-        </Link>
+        <Image
+          src={item.image.url}
+          alt={item.image.description}
+          width={300}
+          height={300}
+          className="object-cover h-64 w-full"
+        />
       </figure>
       <div className="card-body">
-        <Link href={`/item/${item.slug}`}>
-          <h2 className="card-title font-semibold ">{item.name}</h2>
-        </Link>
+        <h2 className="card-title font-semibold ">{item.name}</h2>
+
         <div className="card-actions flex items-center justify-between">
           {item.discount && item.discount > 0 ? (
             <div className="flex items-center space-x-2">
@@ -50,6 +41,14 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
             <span className="text-2xl">₹{item.price.toFixed(2)}</span>
           )}
         </div>
+      </div>
+      <div>
+        <button
+          // onClick={handleAddToCart}
+          className="mt-4 w-full bg-amber-800  py-2 rounded hover:bg-yellow-900 transition-colors duration-300"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   )
