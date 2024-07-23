@@ -22,3 +22,7 @@ export const calcPrice = (items: OrderItem[]) => {
     totalPrice = round2(itemsPrice + taxPrice)
   return { itemsPrice, taxPrice, totalPrice }
 }
+
+export const generateRandomNumber = () => {
+  return Math.floor(Math.random() * 100 + 1)
+}

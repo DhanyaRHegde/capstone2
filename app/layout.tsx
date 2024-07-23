@@ -21,8 +21,10 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col bg-amber-500">
           <Header />
           {children}
-          <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-            <p>Copyright © 2023 - All right reserved by Barista </p>
+          <footer className="footer footer-center p-4 bg-orange-800 text-base-content">
+            <p className="text-white">
+              Copyright © 2023 - All right reserved by Barista{' '}
+            </p>
           </footer>
         </div>
       </body>

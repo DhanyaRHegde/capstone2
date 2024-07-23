@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request'
 
-const space = 'dtsy4p94ymj5'
-const accessToken = 'DfrmA1TqT7Y5CnA3yCFN0286UO5DHnzstc0q-dXyv2E'
+const space = process.env.SPACE_ID
+const accessToken = process.env.ACCESS_TOKEN
 
 if (!space || !accessToken) {
   throw new Error('Missing Contentful environment variables')

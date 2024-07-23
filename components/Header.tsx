@@ -13,13 +13,16 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="navbar justify-between bg-amber-600 ">
-          <Link href="/" className="btn btn-ghost text-lg">
+        <div className="navbar justify-between bg-orange-800  ">
+          <Link href="/" className="btn btn-ghost text-lg text-white">
             Barista
           </Link>
           <ul className="flex">
             <li>
-              <Link className="btn btn-ghost rounded-btn" href="/cart">
+              <Link
+                className="btn btn-ghost rounded-btn text-white"
+                href="/cart"
+              >
                 Cart
                 {mounted && items.length != 0 && (
                   <div className="badge badge-secondary">
@@ -29,7 +32,10 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className="btn btn-ghost rounded-btn" href="/signin">
+              <Link
+                className="btn btn-ghost rounded-btn text-white"
+                href="/signin"
+              >
                 Login
               </Link>
             </li>

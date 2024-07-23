@@ -1,5 +1,5 @@
 // components/MenuSection.tsx
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Items } from '@/lib/models/itemModel'
 import MenuItem from './MenuItem'
 

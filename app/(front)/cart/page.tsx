@@ -1,5 +1,5 @@
 import React from 'react'
-import CartDetails from './CartDetails'
+import CartDetails from '../../../components/CartDetails'
 
 export const metadata = {
   title: 'Shopping Cart',
