@@ -100,3 +100,13 @@ body {
 .bg-box-6 {
   background-color: #c6ffdd; /* Light Green */
 }
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
