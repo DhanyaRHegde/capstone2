@@ -1,13 +1,30 @@
 'use client'
 import useCartService from '@/lib/useCartStore'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { calculateDiscountedPrice, round2 } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
 export default function CheckoutDetails() {
   const router = useRouter()
   const { items, itemsPrice, taxPrice, totalPrice, clear } = useCartService()
-  //
+
+  // Check if the order was placed and redirect to home
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const orderPlaced = localStorage.getItem('orderPlaced')
+      if (orderPlaced === 'true') {
+        localStorage.removeItem('orderPlaced')
+        router.push('/')
+      }
+    }
+  }, [router])
+
+  // Handle the Place Order button click
+  const handlePlaceOrder = () => {
+    localStorage.setItem('orderPlaced', 'true')
+    clear()
+    router.push('/ordersuccessful')
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-4 flex flex-col items-center justify-center">
@@ -70,13 +87,7 @@ export default function CheckoutDetails() {
       </div>
 
       <div className="w-full flex justify-center mt-4">
-        <button
-          className="btn btn-primary "
-          onClick={() => {
-            router.push('/ordersuccessful')
-            clear()
-          }}
-        >
+        <button className="btn btn-primary" onClick={handlePlaceOrder}>
           Place Order
         </button>
       </div>
