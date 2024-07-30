@@ -16,7 +16,7 @@ const Home = async () => {
 
   return (
     <div>
-      <div className="w-full carousel rounded-box mt-4">
+      <div className="w-full carousel rounded-box mt-4 h-[33vh] md:h-[40vh] lg:h-[50vh]">
         {combos.map((item, index) => (
           <div
             key={item.id}
