@@ -1,4 +1,19 @@
-export { auth as middleware } from './lib/auth'
+import NextAuth from 'next-auth'
+import type { NextAuthConfig } from 'next-auth'
+
+const authConfig = {
+  providers: [],
+  callbacks: {
+    authorized({ request, auth }: any) {
+      const protectedPaths = [/\/checkout/, /\/ordersuccessful/]
+      const { pathname } = request.nextUrl
+      if (protectedPaths.some((p) => p.test(pathname))) return !!auth
+      return true
+    },
+  },
+} satisfies NextAuthConfig
+
+export const { auth: middleware } = NextAuth(authConfig)
 
 export const config = {
   matcher: [
