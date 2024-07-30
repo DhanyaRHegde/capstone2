@@ -1,4 +1,5 @@
 'use client'
+
 import useCartService from '@/lib/useCartStore'
 import { calculateDiscountedPrice } from '@/lib/utils'
 import Image from 'next/image'
@@ -9,10 +10,15 @@ import React, { useEffect, useState } from 'react'
 export default function CartDetails() {
   const router = useRouter()
   const { items, itemsPrice, decrease, increase } = useCartService()
-
+  const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 2000) // Simulate network delay for demonstration
+
+    return () => clearTimeout(timer)
   }, [])
 
   if (!mounted) return <></>
@@ -78,7 +84,7 @@ export default function CartDetails() {
             </table>
           </div>
           <div>
-            <div className="card bg-yellow-400">
+            <div className="card bg-base-200">
               <div className="card-body">
                 <ul>
                   <li>
@@ -90,7 +96,7 @@ export default function CartDetails() {
                   <li>
                     <button
                       onClick={() => router.push('/checkout')}
-                      className="btn bg-amber-700 text-white w-full"
+                      className="btn btn-primary w-full"
                     >
                       Proceed to Checkout
                     </button>

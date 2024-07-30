@@ -18,7 +18,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
   return existItem ? (
     <div className="w-full flex justify-between items-center">
       <button
-        className="btn btn-secondary rounded-btn w-1/3 bg-orange-800"
+        className="btn btn-primary rounded-btn w-1/3"
         type="button"
         onClick={() => decrease(existItem)}
       >
@@ -26,7 +26,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
       </button>
       <span className="px-2 text-center w-1/3">{existItem.qty}</span>
       <button
-        className="btn btn-secondary rounded-btn w-1/3 bg-orange-800"
+        className="btn btn-primary rounded-btn w-1/3"
         type="button"
         onClick={() => increase(existItem)}
       >
@@ -35,7 +35,7 @@ export default function AddToCart({ item }: { item: OrderItem }) {
     </div>
   ) : (
     <button
-      className="btn btn-secondary rounded-btn  w-full bg-orange-800 text-white"
+      className="btn btn-primary rounded-btn  w-full "
       type="button"
       onClick={addToCartHandler}
     >

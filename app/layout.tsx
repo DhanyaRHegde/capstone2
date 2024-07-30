@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
+import Providers from '@/components/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,15 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-amber-500">
-          <Header />
-          {children}
-          <footer className="footer footer-center p-4 bg-orange-800 text-base-content">
-            <p className="text-white">
-              Copyright © 2023 - All right reserved by Barista{' '}
-            </p>
-          </footer>
-        </div>
+        <Providers>
+          <div className="min-h-screen flex flex-col ">
+            <Header />
+            {children}
+            <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+              <p>Copyright © 2023 - All right reserved by Barista </p>
+            </footer>
+          </div>
+        </Providers>
       </body>
     </html>
   )

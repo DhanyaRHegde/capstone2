@@ -31,3 +31,72 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes popping {
+  0%,
+  100% {
+    transform: scale(1) translate(50vw, 50vh);
+  }
+  25% {
+    transform: scale(1.5) translate(-50px, -50px);
+  }
+  50% {
+    transform: scale(2) translate(50px, 50px);
+  }
+  75% {
+    transform: scale(2.5) translate(50px, -50px);
+  }
+}
+
+.animate-popping {
+  animation: popping 4s ease-in-out infinite;
+}
+
+.animation-delay-0 {
+  animation-delay: 0s;
+}
+
+.animation-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-2 {
+  animation-delay: 1s;
+}
+
+.animation-delay-3 {
+  animation-delay: 1.5s;
+}
+
+.animation-delay-4 {
+  animation-delay: 2s;
+}
+
+.animation-delay-5 {
+  animation-delay: 2.5s;
+}
+
+/* Define different colors for each box */
+.bg-box-1 {
+  background-color: #d0baba; /* Red */
+}
+
+.bg-box-2 {
+  background-color: #ffcc5c; /* Yellow */
+}
+
+.bg-box-3 {
+  background-color: #88d8b0; /* Green */
+}
+
+.bg-box-4 {
+  background-color: #4da6ff; /* Blue */
+}
+
+.bg-box-5 {
+  background-color: #ffb6c1; /* Pink */
+}
+
+.bg-box-6 {
+  background-color: #c6ffdd; /* Light Green */
+}

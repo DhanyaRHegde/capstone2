@@ -1,7 +1,7 @@
 // src/lib/contentful/fetchData.ts
-import { GraphQLClient } from 'graphql-request'
 import { BaristaItem, ContentfulResponse } from './models/contentful'
 import client from './contentful/client'
+import bcrypt from 'bcryptjs'
 
 // Define the GraphQL query
 const BARISTA_QUERY = `
@@ -34,4 +34,19 @@ export async function fetchBaristaData(): Promise<BaristaItem[]> {
     console.error('Error fetching barista data:', error)
     return []
   }
+}
+
+export const data = {
+  users: [
+    {
+      name: 'John',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('123456'),
+    },
+    {
+      name: 'Jane',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('123456'),
+    },
+  ],
 }

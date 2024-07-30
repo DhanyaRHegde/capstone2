@@ -12,7 +12,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   const discountedPrice = calculateDiscountedPrice(item.price, item.discount)
 
   return (
-    <div className="card bg-yellow-500 shadow-lg mb-4 hover:shadow-slate-700 transition-shadow duration-300 flex-col justify-between">
+    <div className="card bg-base-300 shadow-lg mb-4 hover:shadow-slate-700 transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300 flex-col justify-between">
       <figure>
         <Image
           src={item.image.url}
